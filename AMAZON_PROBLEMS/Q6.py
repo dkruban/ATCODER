@@ -14,4 +14,4 @@ def find_starting_point(petrol, distance, N):
     
     if (curr_petrol + deficit) >= 0:
         return start
-    return -1 # No solution
+    return -1 
