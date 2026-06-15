@@ -8,7 +8,6 @@ def check_leaves_same_level(root):
         if not node:
             return True
         
-        # It's a leaf
         if not node.left and not node.right:
             if leaf_level is None:
                 leaf_level = level
