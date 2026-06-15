@@ -7,13 +7,11 @@ def search_rotated(A, N, key):
         if A[mid] == key:
             return mid
         
-        # Left half is sorted
         if A[low] <= A[mid]:
             if A[low] <= key < A[mid]:
                 high = mid - 1
             else:
                 low = mid + 1
-        # Right half is sorted
         else:
             if A[mid] < key <= A[high]:
                 low = mid + 1
