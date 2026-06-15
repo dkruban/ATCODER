@@ -1,13 +1,10 @@
 def edit_distance(s, t):
     m, n = len(s), len(t)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
-    
-    # Base cases: converting empty string to target requires inserts
     for j in range(n + 1):
         dp[0][j] = j
         
-    # Converting source to empty string requires deletes
-    for i in range(m + 1):
+   for i in range(m + 1):
         dp[i][0] = i
         
     for i in range(1, m + 1):
