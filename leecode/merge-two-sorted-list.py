@@ -22,3 +22,4 @@ class Solution:
 
         # Return the actual head (skipping the dummy node)
         return dummy.next
+ 
