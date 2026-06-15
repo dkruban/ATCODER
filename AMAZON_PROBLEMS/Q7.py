@@ -7,7 +7,7 @@ def kadane(arr):
             max_so_far = current_max
         if current_max < 0:
             current_max = 0
-    return max_so_far if max_so_far > 0 else max(arr) # Handle all negatives
+    return max_so_far if max_so_far > 0 else max(arr) 
 
 def max_sum_submatrix(M, R, C):
     max_sum = float('-inf')
@@ -15,11 +15,9 @@ def max_sum_submatrix(M, R, C):
     for left in range(C):
         temp = [0] * R
         for right in range(left, C):
-            # Add column values to temp
             for i in range(R):
                 temp[i] += M[i][right]
             
-            # Apply Kadane's on temp
             current_max = kadane(temp)
             if current_max > max_sum:
                 max_sum = current_max
