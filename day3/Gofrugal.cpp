@@ -14,11 +14,9 @@ int main() {
         printf("Invalid input\n");
         return 0;
     }
-
     int temp = decimal_num;
     while (temp > 0) {
         binary_array[index] = temp % 2;
-        
         if (binary_array[index] == 1) {
             count_ones++;
         }
@@ -36,6 +34,5 @@ int main() {
     }
     printf("\n");
     printf("Count of 1's: %d\n", count_ones);
-
     return 0;
 }
