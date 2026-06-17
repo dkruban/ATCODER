@@ -13,7 +13,6 @@ def solve():
     for i in range(1, t + 1):
         n = int(data[i])
         
-        # Calculate the size of the first half
         half = (n + 1) // 2
         
         left_half = list(range(n + 1, n + 1 + half))
@@ -22,7 +21,6 @@ def solve():
         ans = []
         l_idx, r_idx = 0, 0
         
-        # Interleave the two halves
         for j in range(n):
             if j % 2 == 0:
                 ans.append(str(left_half[l_idx]))
