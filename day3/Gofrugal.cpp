@@ -35,8 +35,6 @@ int main() {
         printf("%d", binary_array[i]);
     }
     printf("\n");
-
-    // Print the count of 1's
     printf("Count of 1's: %d\n", count_ones);
 
     return 0;
