@@ -1,0 +1,54 @@
+import sys
+
+def solve():
+    # Read all input from standard input for performance
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    N = int(input_data[0])
+    M = int(input_data[1])
+    
+    # The next N elements are the initial card values
+    A = [int(x) for x in input_data[2:2+N]]
+    
+    # The remaining elements are pairs of B_j and C_j
+    operations = []
+    idx = 2 + N
+    for _ in range(M):
+        b = int(input_data[idx])
+        c = int(input_data[idx+1])
+        operations.append((b, c))
+        idx += 2
+        
+    # Sort initial cards in ascending order
+    A.sort()
+    
+    # Sort replacement options by their value (C_j) in descending order
+    operations.sort(key=lambda x: x[1], reverse=True)
+    
+    # Pointer for the current smallest card in A
+    card_ptr = 0
+    
+    # Iterate through the highest value replacements available
+    for b, c in operations:
+        # Replace elements in A as long as the replacement value 'c' is greater
+        # and we haven't run out of cards to replace (card_ptr < N)
+        while b > 0 and card_ptr < N and A[card_ptr] < c:
+            A[card_ptr] = c
+            card_ptr += 1
+            b -= 1
+            
+        # If the replacement value 'c' is no longer larger than the current card,
+        # subsequent replacement values will also be smaller (since operations is sorted)
+        if card_ptr >= N or A[card_ptr] >= c:
+            if b == 0 or A[card_ptr] >= c:
+                # If we broke out because c is too small, we can stop entirely
+                if A[card_ptr] >= c:
+                    break
+
+    # Print the maximum possible sum
+    print(sum(A))
+
+if __name__ == '__main__':
+    solve()
